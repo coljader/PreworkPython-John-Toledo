@@ -1,0 +1,813 @@
+'''VARIABLES Y OPERADORES'''
+'''Ejercicio 1'''
+from collections import Counter
+nombre = "John Jader"
+print(nombre)
+'''Ejercicio 2'''
+a = 5
+b = 10
+suma = a + b
+print(suma)
+'''Ejercicio 3'''
+b = 10
+a = 5
+area = (b*a)/2
+print(area)
+'''Ejercicio 4'''
+
+dividir = 7/3
+print(dividir)
+
+'''CONDICIONALES'''
+'''Ejercicio 1'''
+a = -10
+if a < 0:
+    print("a es negativo ")
+else:
+    print("a no es negativo")
+'''Ejercicio 2'''
+numero = 7
+if numero % 2 == 0:
+    print("Numero par")
+else:
+    print("Numero impar")
+'''EJERCICIO 3'''
+a = 1
+b = 3
+c = 0
+if a > b and a > c:
+    print("el numero mayor es:", a)
+elif b > a and b > c:
+    print("el numero mayor es:", b)
+elif c > a and c > b:
+    print("el numero mayor es:", c)
+else:
+    print("no se pudo establecer el mayor")
+'''BUCLES'''
+'''EJERCICIO 1'''
+numero = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+for numero in range(1, 11):
+    print(numero)
+'''EJERCICIO 2'''
+numero = 1
+while numero <= 20:
+    if numero % 2 == 0:
+        print(numero)
+    numero += 1
+
+'''EJERCICIO 3'''
+
+suma = 0
+for numero in range(1, 101):
+    suma += numero
+print("la suma de los numeros del 1 al 100 es:", suma)
+
+'''FUNCIONES'''
+
+'''EJERCICIO 1'''
+
+
+def suma_de_dos_numeros(num1, num2):
+    suma = num1 + num2
+    return suma
+
+
+resultado = suma_de_dos_numeros(10, 20)
+print("la suma de 10 y 20 es:", resultado)
+
+'''EJERCICIO 2'''
+
+
+def factorial(numero):
+    if numero == 0:
+        return 1
+    else:
+        resultado = 1
+        for i in range(1, numero + 1):
+            resultado *= i
+        return resultado
+
+
+resultado_factorial = factorial(4)
+print("El factorial de 4 es:", resultado_factorial)
+
+'''EJERCICIO 3'''
+
+
+def es_primo(numero):
+    if numero <= 1:
+        return False
+    elif numero <= 3:
+        return True
+    elif numero % 2 == 0 or numero % 3 == 0:
+        return False
+    i = 5
+    while i * i <= numero:
+        if numero % i == 0 or numero % (i + 2) == 0:
+            return False
+        i += 6
+        return True
+
+
+numero = 231
+if es_primo(numero):
+    print(f"{numero} es un numero primo")
+else:
+    print(f"{numero} no es un numero primo")
+
+'''EJERCICIO 4'''
+
+
+def suma_de_lista(lista):
+    suma = 0
+    for numero in lista:
+        suma += numero
+    return suma
+
+
+numeros = [2, 5, 7, 9, 12, 16]
+resultado = suma_de_lista(numeros)
+print("La suma de los numeros en la lista es.", resultado)
+
+'''EJERCICIO 5'''
+
+
+def invertir_cadena(cadena):
+    cadena_invertida = cadena[::-1]
+    return cadena_invertida
+
+
+texto = "Los perros comen concentrado"
+resultado = invertir_cadena(texto)
+print("cadena invertida:", resultado)
+
+
+'''EJERCICIOS NIVEL MEDIO'''
+
+'''EJERCICIO 1'''
+
+'''Define una función que utilice un bucle para imprimir los primeros 20
+números de la serie de Fibonacci.'''
+
+
+def imprimir_fibonacci(n):
+    a, b = 0, 1
+    for _ in range(n):
+        print(a)
+        a, b = b, a + b
+
+
+imprimir_fibonacci(20)
+
+'''EJERCICIO 2'''
+'''Define una función que tome EL NUMERO 1348 y retorne una lista de sus
+divisores.'''
+
+
+def obtener_divisores(numero):
+    divisores = []
+    for i in range(1, numero + 1):
+        if numero % i == 0:
+            divisores.append(i)
+    return divisores
+
+
+numero = 1348
+lista_de_divisores = obtener_divisores(numero)
+print(f"Divisores de {numero}: {lista_de_divisores}")
+
+'''EJERCICIO 3'''
+'''Define una función que tome esta lista (arroz, harina, azucar, arroz, azucar) y retorne una nueva lista con los elementos únicos de la lista original.'''
+
+
+def elementos_unicos(lista):
+    conjunto_unicos = set(lista)
+    lista_unicos = list(conjunto_unicos)
+    return lista_unicos
+
+
+mi_lista = ['arroz', 'harina', 'azúcar', 'arroz', 'azúcar']
+lista_sin_duplicados = elementos_unicos(mi_lista)
+print(lista_sin_duplicados)
+
+'''EJERCICIO 4'''
+
+'''Define una funcion que tome el numero 234 y retorne la suma de sus digitos'''
+
+
+def suma_de_digitos(numero):
+    num_str = str(numero)
+    suma = 0
+    for digito in num_str:
+        suma += int(digito)
+    return suma
+
+
+resultado = suma_de_digitos(234)
+print("Suma de los dígitos:", resultado)
+
+'''ejercicio 5'''
+'''Define una función que tome la cadena "Mis amigos juegan bingo" y cuente el número de vocales en la cadena.'''
+
+
+def contar_vocales(cadena):
+    cadena = cadena.lower()
+    contador = 0
+    vocales = set("aeiouáéíóú")
+    for letra in cadena:
+        if letra in vocales:
+            contador += 1
+    return contador
+
+
+cadena = "Mis amigos juegan bingo"
+resultado = contar_vocales(cadena)
+print("Número de vocales en la cadena:", resultado)
+
+'''EJERCICIO 6'''
+
+'''Define una función que tome una lista (trigo, miel, azucar, huevos) y un número n, y retorne los primeros 3 elementos de la lista.'''
+
+
+def primeros_n(lista, n):
+    return lista[:n]
+
+
+if __name__ == "__main__":
+    lista = ["trigo", "miel", "azucar", "huevos"]
+    print(primeros_n(lista, 3))
+
+'''EJERCICIO 7'''
+
+'''Define una función que tome esta cadena "Agua, ¿dónde vas?
+Riendo voy por el río a las orillas del mar.
+Mar, ¿adónde vas?
+Río arriba voy buscando fuente donde descansar.
+Chopo, y tú ¿qué harás?
+No quiero decirte nada. Yo…, ¡temblar!
+¿Qué deseo, qué no deseo, por el río y por la mar?
+Cuatro pájaros sin rumbo en el alto chopo están". y retorne la cantidad de
+letras mayúsculas y minúsculas en la cadena.'''
+
+
+def contar_letras(cadena):
+    mayusculas = 0
+    minusculas = 0
+    for caracter in cadena:
+        if caracter.isupper():
+            mayusculas += 1
+        elif caracter.islower():
+            minusculas += 1
+    return mayusculas, minusculas
+
+
+cadena = """Agua, ¿dónde vas?
+Riendo voy por el río a las orillas del mar.
+Mar, ¿adónde vas?
+Río arriba voy buscando fuente donde descansar.
+Chopo, y tú ¿qué harás?
+No quiero decirte nada. Yo…, ¡temblar!
+¿Qué deseo, qué no deseo, por el río y por la mar?
+Cuatro pájaros sin rumbo en el alto chopo están."""
+
+mayusculas, minusculas = contar_letras(cadena)
+
+print("Letras mayúsculas:", mayusculas)
+print("Letras minúsculas:", minusculas)
+
+'''EJERCICIO 8'''
+'''Define una función que tome un numero y retorne True si es un
+número perfecto, False en caso contrario.'''
+
+
+def es_numero_perfecto(numero):
+    suma_divisores = 0
+    for i in range(1, numero):
+        if numero % i == 0:
+            suma_divisores += i
+    return suma_divisores == numero
+
+
+# Ejemplo de uso:
+numero = 28
+resultado = es_numero_perfecto(numero)
+print(f"¿El número {numero} es perfecto? {resultado}")
+
+'''EJERCICIO 9'''
+'''Define una función que reciba un número y retorne su
+representación en binario.'''
+
+
+def decimal_a_binario(numero):
+    if numero < 0:
+        return "No se puede convertir números negativos a binario"
+    elif numero == 0:
+        return "0b0"
+    else:
+        return bin(numero)
+
+
+# Ejemplo de uso:
+numero_decimal = 10
+representacion_binaria = decimal_a_binario(numero_decimal)
+print(
+    f"El número decimal {numero_decimal} en binario es: {representacion_binaria}")
+
+'''EJERCICIO 10'''
+'''Define una función que reciba dos listas y retorne la intersección de
+ambas (los elementos que están en las dos listas).'''
+
+
+def interseccion_de_listas(lista1, lista2):
+    set1 = set(lista1)
+    set2 = set(lista2)
+    interseccion = set1.intersection(set2)
+    resultado = list(interseccion)
+    return resultado
+
+
+# Ejemplo de uso:
+lista1 = [1, 2, 3, 4, 5]
+lista2 = [3, 4, 5, 6, 7]
+resultado = interseccion_de_listas(lista1, lista2)
+print(f"La intersección de las listas es: {resultado}")
+
+'''Define una función que tome una cadena y determine si es un
+palíndromo (se lee igual de izquierda a derecha que de derecha a izquierda).'''
+
+
+def es_palindromo(cadena):
+    cadena = cadena.replace(" ", "").lower()
+    return cadena == cadena[::-1]
+
+
+# Ejemplo de uso:
+cadena = "Anita lava la tina"
+resultado = es_palindromo(cadena)
+if resultado:
+    print("La cadena es un palíndromo.")
+else:
+    print("La cadena no es un palíndromo.")
+
+'''EJERCICIO 12'''
+
+'''Escribe un programa que imprima los números del 1 al 50, pero para
+múltiplos de tres imprima “Fizz” en lugar del número y para los múltiplos de cinco imprima “Buzz”. Para números que son múltiplos de tanto tres como cinco imprima “FizzBuzz”.'''
+
+for numero in range(1, 51):
+    if numero % 3 == 0 and numero % 5 == 0:
+        print("FizzBuzz")
+    elif numero % 3 == 0:
+        print("Fizz")
+    elif numero % 5 == 0:
+        print("Buzz")
+    else:
+        print(numero)
+
+'''EJERCICIO 13'''
+
+'''Define una función que tome una lista y retorne la lista ordenada en
+orden ascendente.'''
+
+
+def ordenar_ascendente(lista):
+    lista_ordenada = sorted(lista)
+    return lista_ordenada
+
+
+mi_lista = [5, 2, 8, 1, 7]
+resultado = ordenar_ascendente(mi_lista)
+print(resultado)
+
+'''EJERCICIO 14'''
+'''Define una función que reciba una lista de palabras y un entero n, y
+retorne la lista de palabras que son más largas que n.'''
+
+
+def palabras_mas_largas_que_n(lista_palabras, n):
+    palabras_largas = [
+        palabra for palabra in lista_palabras if len(palabra) > n]
+    return palabras_largas
+
+
+lista_palabras = ["gato", "perro", "elefante", "ratón", "tigre"]
+n = 4
+resultado = palabras_mas_largas_que_n(lista_palabras, n)
+print(resultado)
+
+'''EJERCICIO 15'''
+'''Define una función que tome un número y calcule su serie de
+Fibonacci.'''
+
+
+def fibonacci(n):
+    if n <= 0:
+        return []
+    elif n == 1:
+        return [0]
+    elif n == 2:
+        return [0, 1]
+    else:
+        fib_series = [0, 1]
+        while len(fib_series) < n:
+            next_number = fib_series[-1] + fib_series[-2]
+            fib_series.append(next_number)
+        return fib_series
+
+
+n = 10
+resultado = fibonacci(n)
+print(resultado)
+
+'''EJERCICIO 16'''
+'''Define una función que tome una lista de números y retorne el
+número más grande de la lista.'''
+
+
+def encontrar_numero_mas_grande(lista):
+    if len(lista) == 0:
+        return None  # La lista está vacía
+    # Inicializar con el primer número de la lista
+    numero_mas_grande = lista[0]
+    for numero in lista:
+        if numero > numero_mas_grande:
+            numero_mas_grande = numero
+    return numero_mas_grande
+
+
+lista_numeros = [10, 5, 8, 21, 3, 17]
+resultado = encontrar_numero_mas_grande(lista_numeros)
+print("El número más grande es:", resultado)
+
+'''EJERCICIO 17'''
+'''Define una función que reciba un número y retorne la suma de sus
+dígitos al cubo.'''
+
+
+def suma_digitos_al_cubo(numero):
+    numero_str = str(numero)
+    suma = 0
+
+    for digito in numero_str:
+        digito_int = int(digito)
+        suma += digito_int ** 3
+    return suma
+
+
+numero = 12345
+resultado = suma_digitos_al_cubo(numero)
+print("La suma de los dígitos al cubo es:", resultado)
+
+'''EJERCICIO 18'''
+'''Define una función que reciba una lista de números y retorne el
+segundo número más grande de la lista.'''
+
+
+def segundo_mas_grande(lista):
+    lista_ordenada = sorted(lista, reverse=True)
+    if len(lista_ordenada) >= 2:
+        return lista_ordenada[1]
+    else:
+        return None
+
+
+numeros = [5, 2, 9, 1, 7, 8]
+segundo_maximo = segundo_mas_grande(numeros)
+print("El segundo número más grande es:", segundo_maximo)
+
+'''EJERCICIO 19'''
+'''Define una función que tome dos listas y retorne True si tienen al
+menos un miembro en común, de lo contrario, retorne False.'''
+
+
+def superposicion(lista1, lista2):
+    if set(lista1) & set(lista2):
+        return True
+    else:
+        return False
+
+
+lista1 = [1, 2, 3, 4, 5]
+lista2 = [4, 5, 6, 7, 8]
+
+if superposicion(lista1, lista2):
+    print("Tienen al menos un miembro en común.")
+else:
+    print("No tienen miembros en común.")
+
+'''EJERCICIO 20'''
+'''Define una función que tome una lista y retorne una nueva lista con
+los elementos de la lista original en orden inverso.'''
+
+
+def lista_inversa(lista):
+    lista_inversa = lista[::-1]
+    return lista_inversa
+
+
+mi_lista = [1, 2, 3, 4, 5]
+lista_invertida = lista_inversa(mi_lista)
+
+print(lista_invertida)
+
+'''EJERCICIO 21'''
+'''Define una función que reciba una cadena y cuente el número de
+dígitos y letras que contiene.'''
+
+
+def contar_letras_y_digitos(cadena):
+    letras = 0
+    digitos = 0
+    for caracter in cadena:
+        if caracter.isalpha():
+            letras += 1
+        elif caracter.isdigit():
+            digitos += 1
+    return letras, digitos
+
+
+cadena = "Hola123Mundo456"
+letras, digitos = contar_letras_y_digitos(cadena)
+
+print("Letras:", letras)
+print("Dígitos:", digitos)
+
+'''EJERCICIO 22'''
+'''Define una función que reciba una lista de números y retorne la
+suma acumulada de los números'''
+
+
+def suma_acumulada(lista):
+    suma = 0
+    suma_acumulada = []
+    for num in lista:
+        suma += num
+        suma_acumulada.append(suma)
+    return suma_acumulada
+
+
+numeros = [1, 2, 3, 4, 5]
+resultado = suma_acumulada(numeros)
+print(resultado)
+
+'''EJERCICIO 23'''
+'''Define una función que encuentre el elemento más común en una
+lista.'''
+
+
+def elemento_mas_comun(lista):
+    conteo = Counter(lista)
+    elemento_comun = conteo.most_common(1)[0][0]
+    return elemento_comun
+
+
+numeros = [1, 2, 2, 3, 3, 3, 4, 4, 4, 4]
+elemento = elemento_mas_comun(numeros)
+print("El elemento más común es:", elemento)
+
+'''EJERCICIO 24'''
+'''Define una función que tome un número y retorne un diccionario con
+la tabla de multiplicar de ese número del 1 al 10.'''
+
+
+def tabla_de_multiplicar(numero):
+    tabla = {}
+    for i in range(1, 11):
+        tabla[i] = numero * i
+    return tabla
+
+
+# Ejemplo de uso:
+numero = 4
+resultado = tabla_de_multiplicar(numero)
+print(resultado)
+
+'''EJERCICIO 25'''
+'''Define una función que tome una cadena y retorne un diccionario
+con la cantidad de apariciones de cada caracter en la cadena.'''
+
+
+def contar_caracteres(cadena):
+    resultado = {}
+    for caracter in cadena:
+        if caracter in resultado:
+            resultado[caracter] += 1
+        else:
+            resultado[caracter] = 1
+    return resultado
+
+
+# Ejemplo
+cadena = "Hola, mundo aqui estoy"
+resultado = contar_caracteres(cadena)
+print(resultado)
+
+'''EJERCICIO 26'''
+'''Define una función que tome dos listas y retorne la lista de
+elementos que no están en ambas listas.'''
+
+
+def elementos_no_comunes(lista1, lista2):
+    no_comunes = []
+    for elemento in lista1:
+        if elemento not in lista2:
+            no_comunes.append(elemento)
+    for elemento in lista2:
+        if elemento not in lista1:
+            no_comunes.append(elemento)
+    return no_comunes
+
+
+# Ejemplo
+lista1 = [1, 2, 3, 4]
+lista2 = [3, 4, 5, 6]
+resultado = elementos_no_comunes(lista1, lista2)
+print(resultado)
+
+'''EJERCICIO 27'''
+
+'''Define una función que tome una lista y retorne la lista sin
+duplicados.'''
+
+
+def elementos_no_comunes(lista1, lista2):
+    no_comunes = []
+    for elemento in lista1:
+        if elemento not in lista2:
+            no_comunes.append(elemento)
+    for elemento in lista2:
+        if elemento not in lista1:
+            no_comunes.append(elemento)
+    return no_comunes
+
+
+# Ejemplo
+lista1 = [1, 2, 3, 4]
+lista2 = [3, 4, 5, 6]
+resultado = elementos_no_comunes(lista1, lista2)
+print(resultado)
+
+'''EJERCICIO 28'''
+
+'''Define una función que reciba un número entero positivo y retorne la
+suma de los cuadrados de todos los números pares menores o iguales a ese
+número.'''
+
+
+def suma_cuadrados_pares(numero):
+    suma = 0
+    for i in range(2, numero + 1, 2):
+        suma += i**2
+    return suma
+
+
+# Ejemplo
+numero = 6
+resultado = suma_cuadrados_pares(numero)
+print(resultado)
+
+'''EJERCICIO 29'''
+'''Define una función que reciba una lista de números y retorne el
+promedio de los números en la lista.'''
+
+
+def calcular_promedio(lista):
+    if len(lista) == 0:
+        return 0
+    suma = sum(lista)
+    promedio = suma / len(lista)
+    return promedio
+
+
+# Ejemplo
+numeros = [10, 20, 30, 40, 50]
+resultado = calcular_promedio(numeros)
+print(resultado)
+
+'''EJERCICIO 30'''
+'''Define una función que reciba una lista de cadenas y retorne la
+cadena más larga en la lista.'''
+
+
+def cadena_mas_larga(lista):
+    if not lista:
+        return None
+    return max(lista, key=len)
+
+
+# Ejemplo
+cadenas = ["manzana", "banana", "fresa", "kiwi"]
+resultado = cadena_mas_larga(cadenas)
+print(resultado)
+
+'''EJERCICIO 31'''
+'''Define una función que reciba un número entero n y retorne una lista
+con los n primeros números primos.'''
+
+
+def es_primo(num):
+    if num <= 1:
+        return False
+    if num <= 3:
+        return True
+    if num % 2 == 0 or num % 3 == 0:
+        return False
+    i = 5
+    while i * i <= num:
+        if num % i == 0 or num % (i + 2) == 0:
+            return False
+        i += 6
+    return True
+
+
+def obtener_primeros_primos(n):
+    primos = []
+    num = 2
+    while len(primos) < n:
+        if es_primo(num):
+            primos.append(num)
+        num += 1
+    return primos
+
+
+# Ejemplo de uso:
+n = 10
+lista_primos = obtener_primeros_primos(n)
+print(lista_primos)
+
+'''EJERCICIO 32'''
+'''Define una función que reciba una cadena y retorne la misma cadena
+pero con las palabras en orden inverso.'''
+
+
+def invertir_palabras(cadena):
+    palabras = cadena.split()
+    palabras_invertidas = palabras[::-1]
+    cadena_invertida = ' '.join(palabras_invertidas)
+    return cadena_invertida
+
+
+# Ejemplo
+cadena_original = "Hola, soy una cadena de prueba"
+cadena_invertida = invertir_palabras(cadena_original)
+print(cadena_invertida)
+
+'''EJERCICIO 33'''
+'''Escribe una función que reciba una lista de tuplas y retorne una lista
+ordenada basada en el último elemento de cada tupla.'''
+
+
+def ordenar_por_ultimo_elemento(lista_de_tuplas):
+    lista_ordenada = sorted(lista_de_tuplas, key=lambda x: x[-1])
+    return lista_ordenada
+
+
+# Ejemplo
+tuplas = [(1, 5), (3, 2), (7, 8), (6, 4)]
+resultado = ordenar_por_ultimo_elemento(tuplas)
+print(resultado)
+
+'''EJERCICIO 34'''
+'''Define una función que reciba una cadena y retorne la cantidad de
+letras vocales en la cadena.'''
+
+
+def contar_vocales(cadena):
+    cadena = cadena.lower()
+    vocales = ['a', 'e', 'i', 'o', 'u']
+    contador = 0
+
+    for letra in cadena:
+        if letra in vocales:
+            contador += 1
+
+    return contador
+
+
+# Ejemplo
+texto = "Hola, esto es un ejemplo de conteo de vocales en Python."
+cantidad_vocales = contar_vocales(texto)
+print("Cantidad de vocales:", cantidad_vocales)
+
+'''EJERCICIO 35'''
+'''Define una función que reciba un número entero y retorne True si es
+un número primo, de lo contrario retorne False.'''
+
+
+def es_primo(numero):
+    if numero <= 1:
+        return False
+    if numero <= 3:
+        return True
+    if numero % 2 == 0 or numero % 3 == 0:
+        return False
+    i = 5
+    while i * i <= numero:
+        if numero % i == 0 or numero % (i + 2) == 0:
+            return False
+        i += 6
+    return True
+
+
+resultado = es_primo(7)
+print(resultado)
